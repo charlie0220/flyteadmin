@@ -13,6 +13,7 @@ import (
 	"github.com/flyteorg/flyteadmin/pkg/config"
 	"github.com/flyteorg/flyteadmin/pkg/repositories"
 	repositoryConfig "github.com/flyteorg/flyteadmin/pkg/repositories/config"
+	"github.com/flyteorg/flytestdlib/config/viper"
 	"github.com/flyteorg/flytestdlib/promutils"
 	_ "github.com/jinzhu/gorm/dialects/postgres" // Required to import database driver.
 	"github.com/spf13/cobra"
@@ -111,4 +112,5 @@ func init() {
 	RootCmd.AddCommand(parentClusterResourceCmd)
 	parentClusterResourceCmd.AddCommand(controllerRunCmd)
 	parentClusterResourceCmd.AddCommand(controllerSyncCmd)
+	parentClusterResourceCmd.AddCommand(viper.GetConfigCommand())
 }
